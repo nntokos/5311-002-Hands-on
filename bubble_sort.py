@@ -22,17 +22,19 @@ def bubble_sort(array):
 
 if __name__ == '__main__':
     print("Bubble Sort")
+    print("Unsorted A: ",A)
     tA = time.time()
     bubble_sort(A)
     tA = time.time() - tA
-    print('A: ', tA)
+    print("Sorted A: ",A)
+    print('tA: ', tA)
 
     tB = time.time()
     bubble_sort(B)
     tB = time.time() - tB
-    print('B: ', tB)
+    print('tB: ', tB)
 
     tC = time.time()
     bubble_sort(C)
     tC = time.time() - tC
-    print('C: ', tC)
+    print('tC: ', tC)
