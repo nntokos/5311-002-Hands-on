@@ -1,7 +1,7 @@
 # Hands on 2 - Selection Sort
 
 import random
-import time
+import timeit
 import tracemalloc
 
 A = [5, 2, 4, 6, 1, 3]
@@ -9,7 +9,7 @@ B = [31, 41, 59, 26, 41, 58, 32, 97, 93, 12]
 C = [random.randint(1, 2^16) for i in range(1, pow(2, 16))] # Array with 2^16 (65,536) random elements
 
 def selection_sort(array):
-    tracemalloc.start()
+    # tracemalloc.start() # Uncomment this line to trace memory usage
     for i in range(len(array)):
         min = i
         for j in range(i + 1, len(array)):
@@ -18,26 +18,18 @@ def selection_sort(array):
         temp = array[i]
         array[i] = array[min]
         array[min] = temp
-    print(tracemalloc.get_traced_memory())
-    tracemalloc.stop()
+    # print(tracemalloc.get_traced_memory()) # Uncomment this line to trace memory usage
+    # tracemalloc.stop() # Uncomment this line to trace memory usage
 
 
 if __name__ == '__main__':
     print("Selection Sort")
-    print("Unsorted A: ",A)
-    tA = time.time()
-    selection_sort(A)
-    tA = time.time() - tA
-    print("Sorted A: ",A)
+    tA = timeit.timeit(lambda: selection_sort(A), number=1)
     print('tA: ', tA)
 
-    tB = time.time()
-    selection_sort(B)
-    tB = time.time() - tB
+    tB = timeit.timeit(lambda: selection_sort(B), number=1)
     print('tB: ', tB)
 
-    tC = time.time()
-    selection_sort(C)
-    tC = time.time() - tC
+    tC = timeit.timeit(lambda: selection_sort(C), number=1)
     print('tC: ', tC)
 
