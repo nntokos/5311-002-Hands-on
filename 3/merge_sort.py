@@ -1,6 +1,5 @@
-# Hands on 2 - Selection Sort
+# Hands on 3 - Merge Sort
 
-import random
 import timeit
 import tracemalloc
 

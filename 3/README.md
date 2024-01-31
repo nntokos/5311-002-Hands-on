@@ -3,7 +3,7 @@
 Implementing merge sort algorithms:
 <br /> Run with following command:
   ```
-  python3 insertion_sort.py
+  python3 merge_sort.py
   ```
 
 The input is: A = [5, 2, 4, 7, 1, 3, 2, 6]
