@@ -54,12 +54,12 @@ __System Specifications:__
    * The time taken for each line is shown in the comments above.
    * The heapify and heappush operations are recursive and have a running time of $$T(k) = T(k/2) + c$$ and with the master theorem, we get $$T(k) = Θ(lg(k))$$
    * Every heappop operation will run the heapify operation and some other non recursive, non repetitive operations. Hence the heapify and heappop operations share the same time complexity.
-   * The while loop will run $$k*n + 1$$ times, and the heappop and heappush operations will run $$k*n$$ times.
+   * The while loop will run $$k\*n + 1$$ times, and the heappop and heappush operations will run $$k\*n$$ times.
    * Every other non recursive operation will run at most $$c\*k\*n$$ times and therefore they will not affect the overall time complexity.
    Therefore, the time complexity is determined by the number of times the recursive functions will run inside the while loop:<br />
-   $$T(n,k) = c_7*k*n*lg(k) + c_10*k*n*lg(k) + Θ(k*n)$$
-   $$\Rightarrow T(n, k) = c*k*n*lg(k) + Θ(k*n)$$
-   $$\Rightarrow T(n, k) = Θ(k*n*lg(k))$$
+   $$T(n,k) = c_7\*k\*n\*lg(k) + c_{10}\*k\*n\*lg(k) + Θ(k\*n)$$
+   $$\Rightarrow T(n, k) = c\*k\*n\*lg(k) + Θ(k\*n)$$
+   $$\Rightarrow T(n, k) = Θ(k\*n\*lg(k))$$
    
 
 ### Problem 2 - Remove Duplicates from array
