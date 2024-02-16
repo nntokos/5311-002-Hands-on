@@ -3,32 +3,6 @@
 import timeit
 import tracemalloc
 
-#
-# def merge(arrays):
-#     # Pointers to the current element being compared of each array
-#     pointers = [0]*len(arrays) # - c1
-#     current_min = arrays[0][pointers[0]] # - c2
-#     current_min_array = 0 # - c3
-#     sorted_array = [] # - c4
-#     while sum(pointers) < len(arrays)*len(arrays[0]): # - c5*(k*n+1) where k is the number of arrays and n is the number of elements in each array
-#         # Find the first pointer that is not at the end of the array and set the array element as the current minimum
-#         for j in range(len(pointers)): # - c6*k*n*(k+1)
-#             if pointers[j] < len(arrays[j]): # - c7*k*n*k
-#                 current_min = arrays[j][pointers[j]]
-#                 current_min_array = j
-#                 break
-#         # Find the minimum of between the elements that the pointers point to and have not been already added to the sorted array
-#         for i in range(len(pointers)): # - c8*k*n*(k+1)
-#             if pointers[i] < len(arrays[i]) and current_min > arrays[i][pointers[i]]: # - c9*k*n*k
-#                 current_min = arrays[i][pointers[i]]
-#                 current_min_array = i
-#         # Move the pointer of the array that had the minimum element
-#         pointers[current_min_array] += 1 # - c10*k*n
-#         # Add the current minimum element to the sorted array
-#         sorted_array.append(current_min) # - c11*k*n
-#
-#     return sorted_array
-
 heap = []
 def heapify(heap, i):
     left = 2*i + 1
