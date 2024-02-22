@@ -41,7 +41,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     random_pivot = args.random_pivot
 
-    n = 1000
+    n = 100
 
     # Worst case scenario
     worst_array = [i for i in range(n, 0, -1)]
@@ -65,4 +65,16 @@ if __name__ == '__main__':
     print('tWorst: ', tWorst)
     print('tAvg: ', tAvg)
     print('tBest: ', tBest)
+
+    # Uncomment the following code to plot the graphs
+    # import matplotlib.pyplot as plt
+    # import numpy as np
+    # x = np.arange(3)
+    # plt.bar(x, [tWorst, tAvg, tBest])
+    # plt.xticks(x, ['Worst', 'Average', 'Best'])
+    # plt.ylabel('Time taken')
+    # plt.title(f'Time taken to sort arrays {n} elements long')
+    # plt.show()
+
+
 
