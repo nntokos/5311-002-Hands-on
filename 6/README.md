@@ -51,3 +51,11 @@ Since every recursive call (either left-hand or right-hand) disregards the mid e
   * tWorst:  0.00018375000217929482
   * tAvg:  6.616703467443585e-05
   * tBest:  6.525003118440509e-05
+
+5. __Notes__
+* If a large n is required then the recursion limit should be increased. This is done by using the following command:
+  ```
+  import sys
+  sys.setrecursionlimit(<large n + c>)
+  ```
+  Where c is a small constant added to n to ensure that the recursion limit is not reached because of the other functions in the script (e.g. insert, rand, etc. in this case).

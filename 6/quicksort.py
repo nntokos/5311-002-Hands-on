@@ -2,11 +2,10 @@
 import math
 import timeit
 import random
-import copy
 import argparse
 import sys
 
-sys.setrecursionlimit(10010)  # Increase the recursion limit to 10010
+sys.setrecursionlimit(1006)  # Increase the recursion limit to 10010
 
 def quicksort(arr, low, high, random_pivot=False):
     if low < high:
@@ -38,11 +37,11 @@ def fillBestCaseQuicksortArray(arr, low, high): # Explanation in the README
 if __name__ == '__main__':
     # Parse random_pivot argument
     parser = argparse.ArgumentParser()
-    parser.add_argument('--random_pivot', default=True, action='store_true')
+    parser.add_argument('--random_pivot', default=False, action='store_true')
     args = parser.parse_args()
     random_pivot = args.random_pivot
 
-    n = 100
+    n = 1000
 
     # Worst case scenario
     worst_array = [i for i in range(n, 0, -1)]
@@ -66,5 +65,4 @@ if __name__ == '__main__':
     print('tWorst: ', tWorst)
     print('tAvg: ', tAvg)
     print('tBest: ', tBest)
-
 
