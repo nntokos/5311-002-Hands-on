@@ -42,7 +42,7 @@ __System Specifications:__
 Since every recursive call (either left-hand or right-hand) disregards the mid element, the output of the function with a `(0, n)` input, would be short in length (in contrast to the n length arrays) by the number of mids that would occur which is equal to the number of subarrays created during the partitioning of the final (minus 1 for the first split). This number is `2**int(log2(n)) - 1`.
 
 4. __Benchmarks__
-<br />By using the timeit module, the following times were recorded
+<br />By using the timeit module, the following times were recorded (n=100)
 * Non Random Pivot (Last Element):
   * tWorst:  0.00030150002567097545
   * tAvg:  7.400003960356116e-05
@@ -52,7 +52,31 @@ Since every recursive call (either left-hand or right-hand) disregards the mid e
   * tAvg:  6.616703467443585e-05
   * tBest:  6.525003118440509e-05
 
-5. __Notes__
+5. __Average Runtime Complexity__
+<br />For the non random pivot version of quicksort each level of recursion takes:
+<br />$$T(n) = T(\(frac{ln}{k})) + T(\(frac{(1-l)n}{k})) + n$$
+<br />We know that the average runtime is bounded by the worst and best case scenarios. therefore we assume that the best case scenario might be the average case and try to prove it.
+$$T(n)<=cn\lg(n)$$
+   $$\Rightarrow T(n) = T\left(\frac{ln}{k}\right) + T\left(\frac{\left(k-l)n}{k}\right) + n \leq c\frac{ln}{k}\lg\left(\frac{ln}{k}\right) + c\frac{(k-l)n}{k}\lg\left(\frac{\left(k-l\right)n}{k}\right) + n$$
+<br />
+
+$$= c\frac{ln}{k}\lg\left(\frac{ln}{k}\right) - c\left(\frac{(l-k)n}{k}\right)\lg\left(\frac{(k-l)n}{k}\right) + n$$
+
+$$= cn\left(\frac{l}{k}\right)\left[\lg\left(\frac{l}{k}n\right) - k\lg\left(\frac{k-l}{k}n\right)\right] + n$$
+
+$$= cn\left(\frac{l}{k}\right)\left[\lg\left(\frac{n}{\frac{k}{l}}\right) - k\lg\left(\frac{n}{\frac{k}{k-l}}\right)\right] + n$$
+
+$$= cn\left(\frac{l}{k}\right)\left[\lg\left(n\right) - \lg\left(\frac{k}{l}\right) - k\lg\left(\frac{n}{\frac{k}{k-l}}\right)\right] + n$$
+
+Cancelling the negative terms (hence producing a larger sum):
+
+$$\leq cn\left(\frac{l}{k}\right)\lg\left(n\right) + n$$
+
+$$\leq cn\lg\left(n\right) + n$$
+
+$$\Rightarrow T(n) = O(n\lg(n))$$
+
+6. __Notes__
 * If a large n is required then the recursion limit should be increased. This is done by using the following command:
   ```
   import sys
