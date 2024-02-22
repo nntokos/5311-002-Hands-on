@@ -72,7 +72,7 @@ if __name__ == '__main__':
     # x = np.arange(3)
     # plt.bar(x, [tWorst, tAvg, tBest])
     # plt.xticks(x, ['Worst', 'Average', 'Best'])
-    # plt.ylabel('Time taken')
+    # plt.ylabel('Time taken (s)')
     # plt.title(f'Time taken to sort arrays {n} elements long')
     # plt.show()
 

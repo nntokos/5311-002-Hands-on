@@ -47,10 +47,13 @@ Since every recursive call (either left-hand or right-hand) disregards the mid e
   * tWorst:  0.00030150002567097545
   * tAvg:  7.400003960356116e-05
   * tBest:  6.512500112876296e-05
+    <br />The relevant graph is shown in the __benchmark_graph.png__ file.
+  <br /><br />
 * Random Pivot:
   * tWorst:  0.00018375000217929482
   * tAvg:  6.616703467443585e-05
   * tBest:  6.525003118440509e-05
+
 
 5. __Average Runtime Complexity__
 <br />For the non random pivot version of quicksort each level of recursion takes:
