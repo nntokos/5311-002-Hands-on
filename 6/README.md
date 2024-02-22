@@ -54,11 +54,11 @@ Since every recursive call (either left-hand or right-hand) disregards the mid e
 
 5. __Average Runtime Complexity__
 <br />For the non random pivot version of quicksort each level of recursion takes:
-<br />$$T(n) = T(\(frac{ln}{k})) + T(\(frac{(1-l)n}{k})) + n$$
+<br />$$T(n) = T\left(\frac{ln}{k}\right) + T\left(\frac{(1-l)n}{k}\right) + n$$
 <br />We know that the average runtime is bounded by the worst and best case scenarios. therefore we assume that the best case scenario might be the average case and try to prove it.
 $$T(n)<=cn\lg(n)$$
-   $$\Rightarrow T(n) = T\left(\frac{ln}{k}\right) + T\left(\frac{\left(k-l)n}{k}\right) + n \leq c\frac{ln}{k}\lg\left(\frac{ln}{k}\right) + c\frac{(k-l)n}{k}\lg\left(\frac{\left(k-l\right)n}{k}\right) + n$$
-<br />
+
+$$\Rightarrow T(n) = T\left(\frac{ln}{k}\right) + T\left(\frac{\left(k-l\right)n}{k}\right) + n \leq c\frac{ln}{k}\lg\left(\frac{ln}{k}\right) + c\frac{(k-l)n}{k}\lg\left(\frac{\left(k-l\right)n}{k}\right) + n$$
 
 $$= c\frac{ln}{k}\lg\left(\frac{ln}{k}\right) - c\left(\frac{(l-k)n}{k}\right)\lg\left(\frac{(k-l)n}{k}\right) + n$$
 
