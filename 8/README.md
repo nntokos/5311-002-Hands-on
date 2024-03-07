@@ -3,7 +3,7 @@
 __System Specifications:__
 * CPU: Apple M1 Pro 10 cores @ 2.06-3.22 GHz
 * RAM: 16 GB LPDDR5
-* OS: MacOS Sonoma 14.0
+* OS: MacOS Sonoma 14.3.1
 * Python version: 3.9.7
 
 ### A. Find i<sup>th</sup> order statistic 
