@@ -28,7 +28,7 @@ __System Specifications:__
     * `search`: Searches for the key in the hash table and returns the value.
     * `printDetails`: Prints the hash table's details at any given time.
     * `printTable`: Prints the hash table's table at any given time.
-* A doubly linked list is implemented to handle collisions. The linked list has the following attributes and functions:
+* A doubly linked list is implemented to handle collisions. The linked list uses `class Node` for the stored nodes and has the following attributes and functions:
     * `head`: The head of the linked list.
     * `length`: The length of the linked list.
       <br />**Functions**
@@ -39,6 +39,11 @@ __System Specifications:__
     * `nodeWithKey`: Searches for the key in the linked list and returns the value.
     * `tail`: The tail of the linked list.
     * `printDetails`: Prints the linked list's details at any given time.
+      <br />**Node**
+    * `key`: The key of the node.
+    * `value`: The value of the node.
+    * `next`: The next node in the linked list.
+    * `prev`: The previous node in the linked list.
 * The code is generic enough to allow any type of hash function
 * In this implementation of the hash table the keys are integers and the values can be any type. However, a simple change of the hash function can allow the keys to be any type.
 * The main function demonstrates the functionality of the hash table class by inserting, deleting, and printing the hash table's details. The hash table is initially empty.

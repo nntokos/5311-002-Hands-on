@@ -1,8 +1,4 @@
-# Hands on 10 - Implement source code for the doubly linked list data structure
-import random
-
-# For the scope of this hands-on exercise, a fixed size array is only allowed, hence the commands append and pop are not used
-
+# Hands on 10 - Implement source code for the doubly linked list data structure for use in the hash table implementation
 
 class Node:
     def __init__(self, key, value):
