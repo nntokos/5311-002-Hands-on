@@ -29,7 +29,7 @@ def partition(arr, low, high, random_pivot=False):
 def fillBestCaseQuicksortArray(arr, low, high): # Explanation in the README
     if low < high:
         mid = (low + high) // 2 # Mid element is selected as pivot
-        arr.insert(0, mid) # The pivot is added to the beginning of the array.
+        arr.add(0, mid) # The pivot is added to the beginning of the array.
         fillBestCaseQuicksortArray(arr, mid+1, high)
         fillBestCaseQuicksortArray(arr, low, mid-1)
 
