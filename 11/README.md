@@ -20,6 +20,7 @@
    * ***Attributes***
         * `key`: The key of the node.
         * `value`: The value of the node.
+          * `parent`: The parent of the node. This is used to keep track of the parent node while traversing the binary search tree.
         * `left`: The left child of the node.
         * `right`: The right child of the node.
 
@@ -27,8 +28,6 @@
     * ***Attributes***
         * `root`: The root of the binary search tree.
     * ***Functions***
-        > All the functions are implemented in a recursive manner. Since the recursions start from the root node, the functions are called with the root node as the starting point.
-      However, a function cannot take self.root as an argument, therefore a helper (public) function is used to call the main (private) function with the root node (e.g. `add(key, value)` calls `_add(node, key, value`).
         * `isEmpty`: Checks if the binary search tree is empty (i.e., root is None).
         * `add`: Inserts the key into the binary search tree.
         * `delete`: Deletes the key from the binary search tree.
@@ -41,17 +40,17 @@
 3. __Output__
     ```
     {isEmpty}  True
-    BST =  2 3 4 5 6 8 8 
-    {Query(5)}  5: [Left: 3 | Right: 6]
-    {Query(3)}  3: [Left: 2 | Right: 4]
-    {Query(4)}  4: [Left: None | Right: None]
-    {Delete(8)} 
-    BST =  2 3 4 5 6 8 
-    {isEmpty}  False
-    {Query(8)}  8: [Left: None | Right: None]
-    {Query(9)}  None
-    {Predecessor(5)}  4: [Left: None | Right: None]
-    {Successor(5)}  6: [Left: None | Right: 8]
+   BST =  3 4 5 6 7 8 9 
+   {Query(5)}  5: [Left: 3 | Right: 7]
+   {Query(3)}  3: [Left: None | Right: 4]
+   {Query(4)}  4: [Left: None | Right: None]
+   {Delete(8)} 
+   BST =  3 4 5 6 7 9 
+   {isEmpty}  False
+   {Query(8)}  None
+   {Query(9)}  9: [Left: None | Right: None]
+   {Predecessor(5)}  4: [Left: None | Right: None]
+   {Successor(5)}  6: [Left: None | Right: None]
     ```
 
 
@@ -77,7 +76,7 @@
     * ***Attributes***
         * `root`: The root of the red-black tree.
     * ***Functions***
-        > All the functions are implemented in a recursive manner just like the binary search tree. The logic is similar to the binary search tree with additional functions to balance the tree after addition and deletion.
+        > All the functions are implemented in a recursive manner. Since the recursions start from the root node, the functions are called with the root node as the starting point. However, a function cannot take self.root as an argument, therefore a helper (public) function is used to call the main (private) function with the root node (e.g. add(key, value) calls _add(node, key, value).
         * `isEmpty`: Checks if the red-black tree is empty (i.e., root is None).
         * `add`: Inserts the node into the red-black tree.
         * `delete`: Deletes the node from the red-black tree.
@@ -131,7 +130,7 @@
     * ***Attributes***
         * `root`: The root of the AVL tree.
     * ***Functions***
-        > All the functions are implemented in a recursive manner just like the binary search tree. The logic is similar to the binary search tree with additional functions to balance the tree after addition and deletion.
+        > All the functions are implemented in a recursive manner. Since the recursions start from the root node, the functions are called with the root node as the starting point. However, a function cannot take self.root as an argument, therefore a helper (public) function is used to call the main (private) function with the root node (e.g. add(key, value) calls _add(node, key, value).
         * `isEmpty`: Checks if the AVL tree is empty (i.e., root is None).
         * `add`: Inserts the node into the AVL tree.
         * `delete`: Deletes the node from the AVL tree.
