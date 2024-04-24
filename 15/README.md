@@ -1,3 +1,6 @@
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 # CSE 5311-002 - Hands On 15
 
 ### __System Specifications__
@@ -134,13 +137,8 @@ Both algorithms run under the same script.
 
 3. __Output__
     <br />Using the example from figure 25.4 of Chapter 25 of 2009 Introduction to Algorithms by Cormen et al. we get the following output for input array:
-   
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
    <br />
-   $$\begin{bmatrix} 0 \& 3 \& 8 \& \infty \& -4 \\\ \infty \& 0 \& \infty \& 1 \& 7 \\\ \infty \& 4 \& 0 \& \infty \& \infty \\\ 2 \& \infty \& -5 & 0 & \infty \\\ \infty & \infty & \infty & 6 & 0 \\\ \end{bmatrix}$$
-
+   $$\begin{bmatrix} 0 \& 3 \& 8 \& \infty \& -4 \\\ \infty \& 0 \& \infty \& 1 \& 7 \\\ \infty \& 4 \& 0 \& \infty \& \infty \\\ 2 \& \infty \& -5 \& 0 \& \infty \\\ \infty \& \infty \& \infty \& 6 \& 0 \\\ \end{bmatrix}$$
     ```
     Simple Floyd-Warshall
     [[ 0.  1. -3.  2. -4.]
@@ -156,4 +154,6 @@ Both algorithms run under the same script.
      [ 2. -1. -5.  0. -2.]
      [ 8.  5.  1.  6.  0.]]
     ```
+
+
    As expected both algorithms return the same result.
