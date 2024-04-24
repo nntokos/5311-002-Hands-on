@@ -43,6 +43,14 @@ def dijkstra(graph, s):
             relax(u, v, graph.w[(u, v)])
     return S
 
+def get_shortest_path(v):
+    path = []
+    while v:
+        path.append(v.data)
+        v = v.p
+    path.reverse()
+    return path
+
 class Graph:
     def __init__(self, vertices):
         self.vertices = vertices
@@ -69,7 +77,6 @@ class Graph:
         return "---End of Adjacency List ---\n"
 
 
-
 if __name__ == "__main__":
     # Example from figure 24.6 of Chapter 24 of 2009 Introduction to Algorithms by Cormen et al.
     # s: 0, t: 1, x: 2, y: 3, z: 4
@@ -90,8 +97,9 @@ if __name__ == "__main__":
     for edge in edges:
         graph.add_edge(edge.u, edge.v, edge.w)
     S = dijkstra(graph, vert[0])
-    print("Vertex | Distance")
+    print("Vertex | Dist | Path")
     print("---------------")
     for v in S:
-        print(f"{v.data}  |  {v.d}")
+        path = get_shortest_path(v)
+        print(f" {v.data}     | {v.d}    | {'->'.join(map(str, path))}")
 
