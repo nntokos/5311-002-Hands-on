@@ -3,7 +3,7 @@
 ### __System Specifications__
 * CPU: Apple M1 Pro 10 cores @ 2.06-3.22 GHz
 * RAM: 16 GB LPDDR5
-* OS: MacOS Sonoma 14.3.1
+* OS: MacOS Sonoma 14.4.1
 * Python version: 3.9.7
 
 ### A. Topological sort
@@ -27,7 +27,8 @@
       * `get_vertex`: Returns the vertex with the given data.
       * `DFS`: Performs the depth-first search on the graph.
       * `DFS_visit`: Visits the vertex and its neighbors.
-   <br /><u>**Vertex**</u>
+        
+     <br /><u>**Vertex**</u>
     * ***Attributes***
       * `data`: The data of the vertex.
       * `color`: The color of the vertex (white, gray, black).
