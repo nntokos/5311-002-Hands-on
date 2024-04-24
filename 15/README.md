@@ -136,6 +136,7 @@ Both algorithms run under the same script.
     <br />Using the example from figure 25.4 of Chapter 25 of 2009 Introduction to Algorithms by Cormen et al. we get the following output for input array:
    
    <br /> 
+   $$f(l)$$
    $$\begin{bmatrix} 0 & 3 & 8 & \infty & -4 \\ \infty & 0 & \infty & 1 & 7 \\ \infty & 4 & 0 & \infty & \infty \\ 2 & \infty & -5 & 0 & \infty \\ \infty & \infty & \infty & 6 & 0 \\ \end{bmatrix}$$
 
     ```
