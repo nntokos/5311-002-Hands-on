@@ -8,23 +8,41 @@ def floyd_warshall(W: List[List[int]]):
     n = len(W)
     D = np.array([[[float(0) for _ in range(n)] for _ in range(n)] for _ in range(n)])
     D[0] = W
-    for k in range(1, n):
-        for i in range(n):
-            for j in range(n):
-                D[k][i][j] = min(D[k - 1][i][j], D[k - 1][i][k] + D[k - 1][k][j])
+    for k in range(0, n-1):
+        km = k + 1
+        for i in range(0, n):
+            for j in range(0, n):
+                D[km][i][j] = min(D[km - 1][i][j], D[km - 1][i][k] + D[km - 1][k][j])
+
+        print(f"\nD{km}")
+        print(D[km])
     return D[n - 1]
 
 # floyd_warshall recursively
 def floyd_warshall_recursive(W: List[List[int]], k: int):
     n = len(W)
-    W_new = [[float(0) for _ in range(n)] for _ in range(n)]
-    W_new = np.array(W_new)
+    Dk = [[float(0) for _ in range(n)] for _ in range(n)]
+    Dk = np.array(Dk)
     for i in range(n):
         for j in range(n):
-            W_new[i][j] = min(W[i][j], W[i][k] + W[k][j])
+            Dk[i][j] = min(W[i][j], W[i][k] + W[k][j])
     if k == n-1:
-        return W_new
-    return floyd_warshall_recursive(W_new, k + 1)
+        return Dk
+    print(f"\nD{k+1}")
+    print(Dk)
+    return floyd_warshall_recursive(Dk, k + 1)
+
+def construct_parent_matrix(W: List[List[int]]):
+    n = len(W)
+    P = [[float(0) for _ in range(n)] for _ in range(n)]
+    P = np.array(P)
+    for i in range(n):
+        for j in range(n):
+            if i != j and W[i][j] != float('inf'):
+                P[i][j] = i
+            else:
+                P[i][j] = None
+    return P
 
 if __name__ == "__main__":
     # Example from figure 25.4 of Chapter 25 of 2009 Introduction to Algorithms by Cormen et al.
@@ -36,9 +54,11 @@ if __name__ == "__main__":
 
     W=np.array(W)
     print("\nSimple Floyd-Warshall")
-    print(floyd_warshall(W))
+    print("\nFinal\n", floyd_warshall(W))
     print("\nRecursive Floyd-Warshall")
-    print(floyd_warshall_recursive(W, 0))
+    print("\nFinal\n", floyd_warshall_recursive(W, 0))
 
+    print("\nParent Matrix")
+    print(construct_parent_matrix(W))
 
 

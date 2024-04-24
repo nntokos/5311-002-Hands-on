@@ -125,9 +125,15 @@ Both algorithms run under the same script.
     <br /><u>**Recursive**</u>
     * ***Function***
         * `floyd_warshall_recursive`: The recursive implementation of the Floyd Warshall algorithm. Implemented using the book's pseudocode.
-      * ***Input***
+    * ***Input***
         * `W`: The adjacency matrix of the graph.
         * `k`: Since this method is recursive, each call calculates a new D matrix. So this value holds the number. This is the recursions knows when to end. 
+      
+   <br /><u>**Parent**</u>
+    * ***Function***
+        * `construct_parent_matrix`: The parent matrix is calculated. This matrix holds the parent of each vertex in the shortest path.
+    * ***Input***
+        * `W`: The adjacency matrix of the graph.
     
     <br /><i><u>Note</u></i>: numpy was used for ease of matrix operations.<br />
    
@@ -136,18 +142,85 @@ Both algorithms run under the same script.
     <br />Using the example from figure 25.4 of Chapter 25 of 2009 Introduction to Algorithms by Cormen et al. we get the following output for input array W:
     ```
     Simple Floyd-Warshall
-    [[ 0.  1. -3.  2. -4.]
-     [ 3.  0. -4.  1.  7.]
-     [ 7.  4.  0.  5. 11.]
-     [ 2. -1. -5.  0.  6.]
-     [ 8.  5.  1.  6.  0.]]
+
+    D1
+    [[ 0.  3.  8. inf -4.]
+     [inf  0. inf  1.  7.]
+     [inf  4.  0. inf inf]
+     [ 2.  5. -5.  0. -2.]
+     [inf inf inf  6.  0.]]
     
-    Recursive Floyd-Warshall
-    [[ 0.  1. -3.  2. -4.]
+    D2
+    [[ 0.  3.  8.  4. -4.]
+     [inf  0. inf  1.  7.]
+     [inf  4.  0.  5. 11.]
+     [ 2.  5. -5.  0. -2.]
+     [inf inf inf  6.  0.]]
+    
+    D3
+    [[ 0.  3.  8.  4. -4.]
+     [inf  0. inf  1.  7.]
+     [inf  4.  0.  5. 11.]
+     [ 2. -1. -5.  0. -2.]
+     [inf inf inf  6.  0.]]
+    
+    D4
+    [[ 0.  3. -1.  4. -4.]
      [ 3.  0. -4.  1. -1.]
      [ 7.  4.  0.  5.  3.]
      [ 2. -1. -5.  0. -2.]
      [ 8.  5.  1.  6.  0.]]
+    
+    Final
+     [[ 0.  3. -1.  4. -4.]
+     [ 3.  0. -4.  1. -1.]
+     [ 7.  4.  0.  5.  3.]
+     [ 2. -1. -5.  0. -2.]
+     [ 8.  5.  1.  6.  0.]]
+    
+    Recursive Floyd-Warshall
+    
+    D1
+    [[ 0.  3.  8. inf -4.]
+     [inf  0. inf  1.  7.]
+     [inf  4.  0. inf inf]
+     [ 2.  5. -5.  0. -2.]
+     [inf inf inf  6.  0.]]
+    
+    D2
+    [[ 0.  3.  8.  4. -4.]
+     [inf  0. inf  1.  7.]
+     [inf  4.  0.  5. 11.]
+     [ 2.  5. -5.  0. -2.]
+     [inf inf inf  6.  0.]]
+    
+    D3
+    [[ 0.  3.  8.  4. -4.]
+     [inf  0. inf  1.  7.]
+     [inf  4.  0.  5. 11.]
+     [ 2. -1. -5.  0. -2.]
+     [inf inf inf  6.  0.]]
+    
+    D4
+    [[ 0.  3. -1.  4. -4.]
+     [ 3.  0. -4.  1. -1.]
+     [ 7.  4.  0.  5.  3.]
+     [ 2. -1. -5.  0. -2.]
+     [ 8.  5.  1.  6.  0.]]
+    
+    Final
+     [[ 0.  1. -3.  2. -4.]
+     [ 3.  0. -4.  1. -1.]
+     [ 7.  4.  0.  5.  3.]
+     [ 2. -1. -5.  0. -2.]
+     [ 8.  5.  1.  6.  0.]]
+    
+    Parent Matrix
+    [[nan  0.  0. nan  0.]
+     [nan nan nan  1.  1.]
+     [nan  2. nan nan nan]
+     [ 3. nan  3. nan nan]
+     [nan nan nan  4. nan]]
     ```
 
    As expected both algorithms return the same result.
