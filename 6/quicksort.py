@@ -5,7 +5,7 @@ import random
 import argparse
 import sys
 
-sys.setrecursionlimit(10006)  # Increase the recursion limit to 10010
+sys.setrecursionlimit(1006)  # Increase the recursion limit to 10010
 
 def quicksort(arr, low, high, random_pivot=False):
     if low < high:
@@ -29,7 +29,7 @@ def partition(arr, low, high, random_pivot=False):
 def fillBestCaseQuicksortArray(arr, low, high): # Explanation in the README
     if low < high:
         mid = (low + high) // 2 # Mid element is selected as pivot
-        arr.insert(0, mid) # The pivot is added to the beginning of the array.
+        arr.add(0, mid) # The pivot is added to the beginning of the array.
         fillBestCaseQuicksortArray(arr, mid+1, high)
         fillBestCaseQuicksortArray(arr, low, mid-1)
 
@@ -38,37 +38,29 @@ if __name__ == '__main__':
     # Parse random_pivot argument
     parser = argparse.ArgumentParser()
     parser.add_argument('--random_pivot', default=False, action='store_true')
-    parser.add_argument('--verbose', default=False, action='store_true')
     args = parser.parse_args()
     random_pivot = args.random_pivot
-    verbose = args.verbose
 
-    n = 10000
+    n = 100
 
     # Worst case scenario
     worst_array = [i for i in range(n, 0, -1)]
-    if args.verbose:
-        print("Worst Array:", worst_array)
+    print("Worst Array:", worst_array)
     tWorst = timeit.timeit(lambda: quicksort(worst_array, 0, len(worst_array) - 1, random_pivot=random_pivot), number=1)
-    if args.verbose:
-        print("Time taken to sort the worst array:", tWorst)
+    print("Worst Array after sorting:", worst_array)
 
     # #Average case scenario
     avg_array = [random.randint(0, n) for i in range(n)]
-    if verbose:
-        print("Average Array:", avg_array)
+    print("Average Array:", avg_array)
     tAvg = timeit.timeit(lambda: quicksort(avg_array, 0, len(avg_array) - 1, random_pivot=random_pivot), number=1)
-    if verbose:
-        print("Time taken to sort the average array:", tAvg)
+    print("Average Array after sorting:", avg_array)
 
     # Best case scenario
     best_array = []
     fillBestCaseQuicksortArray(best_array, 0, n + 2**int(math.log2(n)) - 1)
-    if verbose:
-        print("Best Array:", best_array)
+    print("Best Array:", best_array)
     tBest = timeit.timeit(lambda: quicksort(best_array, 0, len(best_array) - 1, random_pivot=random_pivot), number=1)
-    if verbose:
-        print("Best Array after sorting:", best_array)
+    print("Best Array after sorting:", best_array)
 
     print('tWorst: ', tWorst)
     print('tAvg: ', tAvg)

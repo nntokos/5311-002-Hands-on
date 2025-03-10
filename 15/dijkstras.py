@@ -103,29 +103,3 @@ if __name__ == "__main__":
         path = get_shortest_path(v)
         print(f" {v.data}     | {v.d}    | {'->'.join(map(str, path))}")
 
-
-    vert = [Vertex(i) for i in range(7)]
-
-    edges = [Edge(vert[0], vert[1], 4),
-                Edge(vert[0], vert[2], 3),
-                    Edge(vert[0], vert[4], 7),
-                    Edge(vert[1], vert[2], 6),
-                    Edge(vert[1], vert[3], 5),
-                    Edge(vert[2], vert[3], 11),
-                    Edge(vert[2], vert[4], 8),
-                    Edge(vert[3], vert[4], 2),
-                    Edge(vert[3], vert[5], 2),
-                    Edge(vert[3], vert[6], 10),
-                    Edge(vert[4], vert[6], 5),
-                    Edge(vert[5], vert[6], 3)]
-    graph = Graph(vert)
-    for edge in edges:
-        graph.add_edge(edge.u, edge.v, edge.w)
-    S = dijkstra(graph, "A")
-    print("Vertex | Dist | Path")
-    print("---------------")
-    for v in S:
-        path = get_shortest_path(v)
-        print(f" {v.data}     | {v.d}    | {'->'.join(map(str, path))}")
-
-
